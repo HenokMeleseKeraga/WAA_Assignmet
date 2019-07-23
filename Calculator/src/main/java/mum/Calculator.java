@@ -1,7 +1,8 @@
+package mum;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -60,13 +61,16 @@ public class Calculator extends HttpServlet {
 			if (mult2.isEmpty()) mult2 = "''";
 			product = "''";
 		}
-		
 
+		request.setAttribute("add1",add1);
+		request.setAttribute("add2",add2);
+        request.setAttribute("mult1",mult1);
+        request.setAttribute("mult2",mult2);
+		request.setAttribute("sum",sum);
+		request.setAttribute("product",product);
+		request.getRequestDispatcher("WEB-INF/jsps/result.jsp").forward(request,response);
+ 
 		// Another "view" of how to use PrintWriter
-        request.setAttribute("sum",sum);
-        request.setAttribute("product",product);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("WEB-INF/jsps/result.jsp");
-		dispatcher.forward(request,response);
 //		response.setContentType("text/html");
 //		response.setHeader("Cache-Control", "no-cache");
 //		PrintWriter writer = response.getWriter();
