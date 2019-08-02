@@ -36,7 +36,8 @@
                 <tr><td>Birthday : </td><td><form:input path="birthday" placeholder="MM/dd/yyyy" />
 						<form:errors path="birthday" cssStyle="color : red;" />
 				</td></tr>
-                <tr><td>Phone : </td><td><form:input path="phone.area" cssStyle='width:3em'  />
+                <tr><td>Phone : </td><td>
+                         <form:input path="phone.area" cssStyle='width:3em'  />
 						<form:errors path="phone.area" cssStyle="color : red;" />
 						<form:input path="phone.prefix" cssStyle='width:3em'  />
 						<form:errors path="phone.prefix" cssStyle="color : red;" />
