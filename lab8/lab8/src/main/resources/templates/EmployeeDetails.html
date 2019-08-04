@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="EmployeeForm::header">
+</head>
+<body>
+<div class="container">
+<p>Employee Detail</p>
+ <p>First Name <span th:text="${employee.firstName}"></span><p>
+ <p>last Name <span th:text="${employee.lastName}"></span></p>
+
+ <p>Adresss : Street<span th:text="${employee.address.state}"></span></p>
+<p> </p>
+</div>
+</body>
+</html>

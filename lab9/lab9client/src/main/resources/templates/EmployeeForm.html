@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" th:src="@{/emp.js}"></script>
+</head>
+<body>
+<div id="mainContent">
+<form id="inputForm">
+    <div id="firstName">First Name: <input name="firstName" ></div>
+    <div id="lastName">Last Name : <input name="lastName" ></div>
+    <div id="email"> Email :<input name="email"></div>
+    <div><input type="submit" value="Ajax Submit"></div>
+</form>
+    <div id="result"></div>
+</div>
+</body>
+</html>
