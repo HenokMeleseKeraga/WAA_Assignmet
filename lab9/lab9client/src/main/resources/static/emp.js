@@ -25,18 +25,50 @@ $(document).ready(function () {
 
         );
         function result(response, status, request) {
-            console.log("response :"+ response.firstName);
-            console.log("status :"+ status);
-            console.log("request : " +request.firstName);
+            // console.log("response :"+ response.firstName);
+            // console.log("status :"+ status);
+            // console.log("request : " +request.firstName);
             let fName=response.firstName;
             let lName=response.lastName;
             let email=response.email;
-            let rstForm='<h4>ADD Employee</h4><h4>First Name :';
-            rstForm+=fName+'</h4><h4> Last Name :';
-            rstForm+=lName+'</h4><h4> Email :';
-            rstForm+=email+'</h4>';
-            $('#mainContent').append(rstForm);
-            $('#inputForm').empty();
+            // let rstForm='<h4>ADD Employee</h4><h4>First Name :';
+            // rstForm+=fName+'</h4><h4> Last Name :';
+            // rstForm+=lName+'</h4><h4> Email :';
+            // rstForm+=email+'</h4>';
+            // $('#mainContent').append(rstForm);
+            // $('#inputForm').empty();
+
+            $('#formInput').html("");
+            $("#formInput").append( '<H3 align="center"> New Employee Information <H3>');
+            $('#formInput').append("<H4 align='center'>First Name:  " + fName  + "</h4>"  );
+            $('#formInput').append("<H4 align='center'>Last Name: " +  lName + "</h4>" );
+            $('#formInput').append("<H4 align='center'>Email: " +  email + "</h4>");
+            $("#formInput").append('<h4 align="center"> <a href="#" onclick="toggle_visibility(\'formInput\');resetForm(\'employeeForm\');"><b>EXIT</b> </a> </h4>');
+            make_visible('formInput');
+            make_hidden('errors');
+
+        }
+        toggle_visibility = function(id) {
+            var element = document.getElementById(id);
+            if(element.style.display == 'block')
+                element.style.display = 'none';
+            else
+                element.style.display = 'block';
+        }
+
+        make_hidden = function(id) {
+            var element = document.getElementById(id);
+            element.style.display = 'none';
+        }
+
+        make_visible = function(id) {
+            var element = document.getElementById(id);
+            element.style.display = 'block';
+        }
+
+        resetForm = function(id) {
+            var element = document.getElementById(id);
+            $(element)[0].reset();
 
         }
 
@@ -46,7 +78,7 @@ $(document).ready(function () {
             console.log("status :"+ status);
             console.log("error : "+  error);
             let respJS=request.responseJSON;
-            $('#result').empty();
+            $('#errors').empty();
             if(respJS.errType==='ValidationError'){
                 console.log("errf.message");
                 let fieldJS=respJS.fieldErrorDTOList;
@@ -58,7 +90,7 @@ $(document).ready(function () {
                    errmsg+=error.message+'</p><p>'
                 })
                 errmsg+='</p>';
-              $('#result').append(errmsg);
+              $('#errors').append(errmsg);
 
 
             }else{

@@ -2,19 +2,40 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" th:src="@{/emp.js}"></script>
+    <style type="text/css" rel="stylesheet" th:href="@{/rest.css}"></style>
+    <title>Restful Employee</title>
 </head>
 <body>
 <div id="mainContent">
-<form id="inputForm">
-    <div id="firstName">First Name: <input name="firstName" ></div>
-    <div id="lastName">Last Name : <input name="lastName" ></div>
-    <div id="email"> Email :<input name="email"></div>
-    <div><input type="submit" value="Ajax Submit"></div>
+    <h1>Add Employee</h1>
+<form id="employeeForm">
+    <table cellpadding="0" cellspacing="0" border="1" class="GridOne">
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" name="firstName" id="firstName" value=""></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" name="lastName" id="lastName" value=""></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" id="email" value=""></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="Ajax Submit" ></td>
+        </tr>
+    </table>
 </form>
-    <div id="result"></div>
+
+    <!-- Success - or Validation errors -->
+    <div id="errors"  >
+    </div>
+
+    <div id="formInput" style="display:none" > </div>
 </div>
 </body>
 </html>
